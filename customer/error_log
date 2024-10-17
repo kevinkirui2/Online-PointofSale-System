@@ -1,0 +1,1 @@
+[13-Mar-2024 05:05:16 UTC] PHP Warning:  mysqli_query(): (23000/1451): Cannot delete or update a parent row: a foreign key constraint fails (`flashtec_double`.`sales`, CONSTRAINT `sales_ibfk_2` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)) in /home/flashtec/public_html/onlinepos/customer/delete.php on line 6

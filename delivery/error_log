@@ -1,0 +1,6 @@
+[13-Mar-2024 04:56:01 UTC] PHP Warning:  mysqli_query(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 60
+[13-Mar-2024 04:56:01 UTC] PHP Warning:  mysqli_fetch_array(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 57
+[13-Mar-2024 05:02:07 UTC] PHP Warning:  mysqli_query(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 60
+[13-Mar-2024 05:02:07 UTC] PHP Warning:  mysqli_fetch_array(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 57
+[13-Mar-2024 05:02:42 UTC] PHP Warning:  mysqli_query(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 60
+[13-Mar-2024 05:02:42 UTC] PHP Warning:  mysqli_fetch_array(): (42S22/1054): Unknown column 'remark' in 'field list' in /home/flashtec/public_html/onlinepos/delivery/add.php on line 57
