@@ -50,7 +50,7 @@
         <div class="login-card text-center">
             <!-- Logo -->
             <div class="login-logo">
-                <img class="img-fluid" src="images/logo1.jpg" alt="Logo" />
+                <img class="img-fluid" src="images/log3.png" alt="Logo" />
             </div>
 			<h1 class="role2">Welcome,</h1>
 			<h1 class="role">Please State your Role!</h1>

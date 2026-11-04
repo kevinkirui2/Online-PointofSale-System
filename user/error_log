@@ -1,0 +1,11 @@
+[02-Oct-2024 02:18:57 UTC] PHP Notice:  Undefined variable: _SESSSION in /home/flashtec/public_html/onlinepos/user/add.php on line 5
+[02-Oct-2024 02:18:57 UTC] PHP Warning:  mysqli_query(): (23000/1452): Cannot add or update a child row: a foreign key constraint fails (`flashtec_double`.`logs`, CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)) in /home/flashtec/public_html/onlinepos/user/add.php on line 32
+[02-Oct-2024 10:21:47 UTC] PHP Notice:  Undefined variable: _SESSSION in /home/flashtec/public_html/onlinepos/user/add.php on line 5
+[02-Oct-2024 10:21:47 UTC] PHP Warning:  mysqli_query(): (23000/1452): Cannot add or update a child row: a foreign key constraint fails (`flashtec_double`.`logs`, CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)) in /home/flashtec/public_html/onlinepos/user/add.php on line 32
+[16-Nov-2024 07:24:54 UTC] PHP Warning:  Undefined array key "user" in /home/flashtec/public_html/onlinepos/user/update.php on line 13
+[16-Nov-2024 07:24:54 UTC] PHP Deprecated:  mysqli_real_escape_string(): Passing null to parameter #2 ($string) of type string is deprecated in /home/flashtec/public_html/onlinepos/user/update.php on line 13
+[16-Nov-2024 07:24:54 UTC] PHP Warning:  mysqli_query(): (23000/1452): Cannot add or update a child row: a foreign key constraint fails (`flashtec_double`.`logs`, CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`)) in /home/flashtec/public_html/onlinepos/user/update.php on line 30
+[16-Nov-2024 07:24:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/user/update.php:13) in /home/flashtec/public_html/onlinepos/user/update.php on line 32
+[10-Jan-2025 06:45:28 UTC] PHP Warning:  Undefined variable $_SESSSION in /home/flashtec/public_html/onlinepos/user/add.php on line 5
+[10-Jan-2025 06:45:28 UTC] PHP Warning:  Trying to access array offset on value of type null in /home/flashtec/public_html/onlinepos/user/add.php on line 5
+[10-Jan-2025 06:45:28 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'image' at row 1 in /home/flashtec/public_html/onlinepos/user/add.php on line 28

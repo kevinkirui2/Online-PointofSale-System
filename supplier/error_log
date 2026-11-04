@@ -1,0 +1,3 @@
+[17-Nov-2024 10:11:54 UTC] PHP Warning:  mysqli_query(): (23000/1451): Cannot delete or update a parent row: a foreign key constraint fails (`flashtec_double`.`delivery`, CONSTRAINT `delivery_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`supplier_id`)) in /home/flashtec/public_html/onlinepos/supplier/delete.php on line 6
+[17-Nov-2024 10:11:54 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/supplier/delete.php:6) in /home/flashtec/public_html/onlinepos/supplier/delete.php on line 12
+[04-Jan-2025 11:11:50 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'image' at row 1 in /home/flashtec/public_html/onlinepos/supplier/add.php on line 15

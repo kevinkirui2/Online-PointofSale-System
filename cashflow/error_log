@@ -1,0 +1,30 @@
+[06-Dec-2024 13:34:34 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[06-Dec-2024 13:34:34 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[07-Jan-2025 14:38:51 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[07-Jan-2025 14:38:51 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[07-Jan-2025 14:40:36 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[07-Jan-2025 14:40:36 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[07-Jan-2025 14:42:06 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[07-Jan-2025 14:42:06 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[07-Jan-2025 16:38:18 UTC] PHP Warning:  Undefined array key "username" in /home/flashtec/public_html/onlinepos/cashflow/add_cash.php on line 42
+[07-Jan-2025 17:39:48 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[07-Jan-2025 17:39:48 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[10-Jan-2025 21:00:26 UTC] PHP Warning:  Undefined array key "username" in /home/flashtec/public_html/onlinepos/cashflow/add_cash.php on line 42
+[10-Jan-2025 21:03:53 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[10-Jan-2025 21:03:53 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[10-Jan-2025 21:05:38 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[10-Jan-2025 21:05:38 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[10-Jan-2025 21:08:13 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[10-Jan-2025 21:08:13 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[11-Jan-2025 15:46:44 UTC] PHP Warning:  Undefined array key "username" in /home/flashtec/public_html/onlinepos/cashflow/add_cash.php on line 42
+[15-Jan-2025 20:30:11 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[15-Jan-2025 20:30:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[15-Jan-2025 20:31:29 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[15-Jan-2025 20:31:29 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[15-Jan-2025 20:33:05 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[15-Jan-2025 20:33:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[18-Jan-2025 20:47:53 UTC] PHP Warning:  Undefined array key "username" in /home/flashtec/public_html/onlinepos/cashflow/add_cash.php on line 42
+[18-Jan-2025 20:50:23 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[18-Jan-2025 20:50:23 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14
+[18-Jan-2025 20:52:11 UTC] PHP Warning:  mysqli_query(): (22001/1406): Data too long for column 'purpose' at row 1 in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 13
+[18-Jan-2025 20:52:11 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/flashtec/public_html/onlinepos/cashflow/add.php:13) in /home/flashtec/public_html/onlinepos/cashflow/add.php on line 14

@@ -1,24 +1,31 @@
-<?php  
-	include('server/connection.php');
-	if(!isset($_SESSION['username'])){
-		header('location: index.php');
-	}
-	$added = isset($_GET['added']);
-	$error = isset($_GET['error']);
-	$undelete = isset($_GET['undelete']);
-	$updated = '';
-	$deleted = '';
-	$failure = isset($_GET['failure']);
+<?php
+include('server/connection.php');
+
+// Not logged in: go to the login page, and stop
+if (!isset($_SESSION['username'])) {
+	header('location: main.php');
+	exit;
+}
+
+// Look up the logged-in user's position
+$stmt = mysqli_prepare($db, "SELECT position FROM users WHERE username = ? LIMIT 1");
+mysqli_stmt_bind_param($stmt, 's', $_SESSION['username']);
+mysqli_stmt_execute($stmt);
+$row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
+
+// Session points to a user that no longer exists: clear it so it can't loop
+// if (!$row) {
+// 	session_destroy();
 	
-	$query 	= "SELECT * FROM `customer`";
-	$show	= mysqli_query($db,$query);
-	if(isset($_SESSION['username'])){
-		$user = $_SESSION['username'];
-		$sql = "SELECT position FROM users WHERE username='$user'";
-		$result	= mysqli_query($db, $sql);
-	}   
-	if (mysqli_num_rows($result) > 0){
-		while($row = mysqli_fetch_assoc($result)){
+// 	exit;
+// }
+
+$added    = isset($_GET['added']);
+$error    = isset($_GET['error']);
+$undelete = isset($_GET['undelete']);
+$updated  = '';
+$deleted  = '';
+$failure  = isset($_GET['failure']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -190,12 +197,12 @@
 
 <body class="bg-gray-100 text-gray-800">
 	<div id="navbar">
-		<img src="images/logo1.jpg" alt="Logo">
+		<img src="images/log3.png" alt="Logo">
+		<p style="opacity: 0.8">Sales  System</p>
 		<div class="nav-links">
 			<button onclick="window.location.href='user/user.php'"><i class="fas fa-users"></i> User</button>
 			<button onclick="window.location.href='products/products.php'"><i class="fas fa-box-open"></i> Product</button>
 			<button onclick="window.location.href='supplier/supplier.php'"><i class="fas fa-user-tie"></i> Supplier</button>
-			<button onclick="window.location.href='customer/customer.php'"><i class="fas fa-user-friends"></i> Customer</button>
 			<button onclick="window.location.href='logs/logs.php'"><i class="fas fa-globe"></i> Logs</button>
 			<button onclick="window.location.href='cashflow/cashflow.php'"><i class="fas fa-money-bill-wave"></i> Cash-Flow</button>
 			<button onclick="window.location.href='sales/sales.php'"><i class="fas fa-shopping-cart"></i> Sales</button>
@@ -270,16 +277,19 @@
 		<!-- Product Table -->
 		<div class="mt-6 w-full overflow-x-auto">
 
-		<table class="w-100 table-striped font-weight-bold" style="cursor: pointer;" id="table1">
-        <thead>
-            <tr class='text-center'>
-                <th>Barcode</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Unit</th>
-                <th>Stocks</th>
-            </tr>
-        </thead>
+		<table class="min-w-full bg-white shadow-lg rounded-lg">
+				<thead  class="bg-gray-200">
+					<tr>
+						<th id="smalltxt" class="p-3 text-left">Barcode</th>
+						<th id="smalltxt" class="p-3 text-left">Item</th>
+						<th id="smalltxt" class="p-3 text-left">Price</th>
+						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
+						
+						<th id="smalltxt" class="p-3 text-left">Unit</th>
+						<th id="smalltxt" class="p-3 text-left">Stock</th>
+						
+					</tr>
+				</thead>
         <tbody id="tableData">
             <!-- Product rows will be populated here by AJAX -->
         </tbody>
@@ -296,7 +306,8 @@
 				<thead class="bg-gray-200">
 					<tr>
 						<th id="smalltxt" class="p-3 text-left">Barcode</th>
-						<th id="smalltxt" class="p-3 text-left">Description</th>
+						<th id="smalltxt" class="p-3 text-left">Item</th>
+						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
 						<th id="smalltxt" class="p-3 text-left">Price</th>
 						<th id="smalltxt" class="p-3 text-left">Unit</th>
 						<th id="smalltxt" class="p-3 text-left">Qty</th>
@@ -332,7 +343,7 @@
 
 	<?php include('add.php'); ?>
 	<?php include('templates/js_popper.php'); ?>
-	<script type="text/javascript" src="script.js"></script>
+	<script type="text/javascript" src="script3.js"></script>
 </body>
 </html>
-<?php } } ?>
+<?php  ?>

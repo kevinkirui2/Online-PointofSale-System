@@ -9,9 +9,9 @@
 </head>
 <body>
 	<div class="contain h-100">
-		<?php 
-			include('../employee/base3.php');
-		?>
+		<!-- <?php 
+			include('../employee/base2.php');
+		?> -->
 		<div class="main">
 			<div class="side">
 				<h1 class="ml-4"><i class="fas fa-money-bill-alt"></i> Cash Management</h1>

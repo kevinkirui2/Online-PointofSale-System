@@ -63,20 +63,20 @@ $(document).ready(function(){
 	$(document).on('click','.remove_row',function(){
 		var row_id = $(this).attr("id");
 		var total_product_amount = $('#total_amount'+row_id).val().replace("P","");
-		var final_amount = $('#final_total_amount').text().replace("Ksh","");
+		var final_amount = $('#final_total_amount').text().replace("₱","");
 		var result_amount = parseFloat(final_amount) - parseFloat(total_product_amount);
 		if(isNaN(result_amount)){
 
 			if(total_product_amount == ""){
 				var total_product_amount = 0;
 				var minus_total = parseFloat(final_amount) - parseFloat(total_product_amount);
-				$('#total_amount').text('Ksh '+minus_total);
+				$('#total_amount').text('₱ '+minus_total);
 			}else{
-				$('#final_total_amount').text('Ksh 0.00');
+				$('#final_total_amount').text('₱ 0.00');
 			}
 			
 		}else{
-			$('#final_total_amount').text('Ksh '+result_amount);
+			$('#final_total_amount').text('₱ '+result_amount);
 		}
 		
 		$('#row_id_'+row_id).remove();
@@ -127,10 +127,10 @@ $(document).ready(function(){
 					if(tax_rate>0){	
 						total_sell = parseFloat(buy_price) * parseFloat(tax_rate)/100;
 						total_tax = parseFloat(buy_price) + parseFloat(total_sell);
-						$('#sell_price'+j).val('KSH '+total_tax.toFixed(2));
+						$('#sell_price'+j).val('P '+total_tax.toFixed(2));
 						min_qty = $('#min_qty'+j).val();
 						if(min_qty>0){
-							$('#sell_price'+j).val('KSH '+total_tax);
+							$('#sell_price'+j).val('P '+total_tax);
 						}
 					}				
 				}
@@ -138,7 +138,7 @@ $(document).ready(function(){
 				final_product_amount = parseFloat(final_product_amount) + parseFloat(actual_amount);	
 			}
 		}
-		$('#final_total_amount').text('Ksh '+final_product_amount);
+		$('#final_total_amount').text('₱ '+final_product_amount);
 	}
 	$(document).on('blur', '.min_qty', function(){
 		final_total(count);
@@ -184,7 +184,7 @@ $(document).ready(function(){
 			min_qty.push($(this).val());
 		});
 		$('.sell_price').each(function(){
-			sell_price.push($(this).val().replace("KSH",""));
+			sell_price.push($(this).val().replace("P",""));
 		});
 		$('.remarks').each(function(){
 			remarks.push($(this).val());
@@ -248,11 +248,13 @@ $(document).ready(function(){
 			url: "../delivery/add.php",
 			method: "POST",
 			data: {remarks:remarks,location:location,barcode:barcode,product_name:product_name,quantity:quantity,buy_price:buy_price,unit:unit,tax_rate:tax_rate,min_qty:min_qty,sell_price:sell_price,supplier:supplier,transaction_no:transaction_no,order_date:order_date},
+
 			success: function(data){
 				if(data=="success"){
 					window.location.href='../delivery/delivery.php?success="1"';
 				}else{
-					window.location.href='../delivery/add_delivery.php?failure';
+				// 	window.location.href='../delivery/add_delivery.php?failure';
+				 swal("Error", "Failed to create delivery. Reason: " + data, "error");
 				}
 			}
 		});

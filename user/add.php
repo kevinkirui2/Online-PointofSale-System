@@ -12,7 +12,6 @@
 		$password1 = mysqli_real_escape_string($db, $_POST['password1']);
 	  	$image    = $_FILES['image']['name'];
 		$target   = "../images/".basename($_FILES['image']['name']);
-
 		$query = "SELECT username FROM users WHERE username='$username'";
 		$result = mysqli_query($db, $query);
 		if (mysqli_num_rows($result) == 1){

@@ -1,135 +1,341 @@
-<?php 
+
+
+<?php  
 	include('server/connection.php');
 	if(!isset($_SESSION['username'])){
 		header('location: index.php');
 	}
 	$added = isset($_GET['added']);
+	$error = isset($_GET['error']);
 	$undelete = isset($_GET['undelete']);
 	$updated = '';
 	$deleted = '';
-	$error = "";
 	$failure = isset($_GET['failure']);
+	
 	$query 	= "SELECT * FROM `customer`";
 	$show	= mysqli_query($db,$query);
 	if(isset($_SESSION['username'])){
 		$user = $_SESSION['username'];
 		$sql = "SELECT position FROM users WHERE username='$user'";
 		$result	= mysqli_query($db, $sql);
-		if (mysqli_num_rows($result) > 0){
-			while($row = mysqli_fetch_assoc($result)){
+	}   
+	if (mysqli_num_rows($result) > 0){
+		while($row = mysqli_fetch_assoc($result)){
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>POS.PHP</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="icon" type="image/png" sizes="180x180" href="images/icon.png">
-	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="bootstrap4/css/style2.css">
-	<link rel="stylesheet" href="bootstrap4/css/all.min.css"/>
-	<script src="bootstrap4/jquery/sweetalert.min.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard</title>
+	<script src="https://cdn.tailwindcss.com"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
+	<?php include('templates/head.php'); ?>
+	<style>
+		/* Reset some default styles */
+		body, html {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, sans-serif;
+		}
+
+		/* Navbar Styles */
+		#navbar {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background-color: #2d3748; /* Dark Gray */
+			color: white;
+			padding: 15px 20px;
+			position: relative;
+		}
+
+		#navbar img {
+			width: 120px;
+		}
+
+		/* Navigation Links */
+		.nav-links {
+			display: flex;
+			gap: 20px;
+		}
+
+		.nav-links button {
+			background: none;
+			border: none;
+			color: white;
+			font-size: 16px;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			gap: 5px;
+		}
+
+		.nav-links button:hover {
+			color: #f7fafc; /* Light Gray */
+		}
+
+		/* Hamburger Menu */
+		.hamburger {
+			display: none;
+			font-size: 24px;
+			cursor: pointer;
+		}
+
+		/* Sidebar Styles */
+		.sidebar {
+			height: 100%;
+			width: 0;
+			position: fixed;
+			top: 0;
+			right: 0;
+			background-color: rgba(0, 0, 0, 0.95);
+			overflow-x: hidden;
+			transition: 0.3s;
+			padding-top: 60px;
+			z-index: 1000;
+		}
+
+		.sidebar-content {
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+			padding: 20px;
+		}
+
+		.sidebar a {
+			padding: 10px 20px;
+			text-decoration: none;
+			font-size: 18px;
+			color: #f1f1f1;
+			display: flex;
+			align-items: center;
+			gap: 10px;
+		}
+
+		.sidebar a:hover {
+			background-color: #575757;
+			color: white;
+		}
+
+		.close-btn {
+			position: absolute;
+			top: 20px;
+			right: 25px;
+			font-size: 30px;
+			cursor: pointer;
+			color: white;
+		}
+
+		/* User Info */
+		.user-info {
+			display: none;
+			flex-direction: column;
+			gap: 5px;
+		}
+
+		/* Media Queries */
+		@media (max-width: 600px) {
+			.nav-links {
+				display: none;
+			}
+
+			#smalltxt {
+				font-size: 12px;
+			}
+
+			
+
+			.hamburger {
+				display: block;
+			}
+
+			.sidebar {
+				width: 50%;
+			}
+
+			.user-info {
+				display: flex;
+				margin-top: 20px;
+			}
+		}
+
+		@media (min-width: 601px) {
+			.nav-links {
+				display: flex;
+			}
+
+			.hamburger {
+				display: none;
+			}
+
+			.user-info {
+				display: flex;
+				flex-direction: column;
+				gap: 5px;
+				margin-left: 20px;
+			}
+		}
+
+		/* Additional Styles for Main Content */
+		.bg-gray-100 {
+			background-color: #f7fafc;
+		}
+
+		.text-gray-800 {
+			color: #2d3748;
+		}
+
+		/* Adjust other styles as needed */
+	</style>
 </head>
-<body>
-	<div class="h-100 bg-dark" id="container">
-		<div id="header">
-			<?php include('alert.php'); ?>
-			<div>
-				<img class="img-fluid m-2 w-100" src="images/logo1.jpg"/>
-			</div>
-			<div class="text-white mt-0 ml-5">
-				<table class="table-responsive-sm">
-					<tbody>
-						<tr>
-							<td valign="baseline"><small>User Logged on:<small></td>
-							<td valign="baseline"><small><p class="pt-3 ml-5"><i class="fas fa-user-shield"></i> <?php echo $row['position'];}}}?></p><small></td>
-						</tr>
-						<tr>
-							<td valign="baseline"><small class="pb-1">Date:<small></td>
-							<td valign="baseline"><small><p class="p-0 ml-5"><i class="fas fa-calendar-alt">&nbsp</i><span id='time'></span></p><small></td>
-						</tr>
-						<tr>
-							<td valign="baseline"><input type="hidden" id="uname" value="<?php echo $user; ?>" /><small>Customer Name:<small></td>
-							<td valign="baseline"><small><div class="content p-0 ml-5"><input type="text" class="form-control form-control-sm customer_search" autocomplete="off" data-provide="typeahead" id="customer_search" placeholder="Customer Search" name="customer"/></div>
-								
-								<td valign="baseline"><button class="btn-sm btn-info border ml-2" data-toggle="modal" data-target=".bd-example-modal-md" style="padding-top: 1px; padding-bottom: 2px;"><span class="badge badge-info"><i class="fas fa-user-plus"></i> New</span></button></td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-			<div class="header_price border p-0">
-				<h5>Grand Total</h5>
-				<p class="pb-0 mr-2 mb-2" style="float: right; font-size: 40px;" id="totalValue">Ksh 0.00</p>
-			</div>
+
+<body class="bg-gray-100 text-gray-800">
+	<div id="navbar">
+		<img width="10" src="images/shop.png" alt="Logo">
+		
+		<div class="nav-links">
+			<button onclick="window.location.href='user/employee_profile.php'"><i class="fas fa-users"></i> View Profile</button>
+			<button onclick="window.location.href='products/products_employee.php'"><i class="fas fa-box-open"></i> Product</button>
+			<!-- <button onclick="window.location.href='supplier/supplier.php'"><i class="fas fa-user-tie"></i> Supplier</button> -->
+			<!-- <button onclick="window.location.href='customer/customer.php'"><i class="fas fa-user-friends"></i> Customer</button> -->
+			<!-- <button onclick="window.location.href='logs/logs.php'"><i class="fas fa-globe"></i> Logs</button> -->
+			<button onclick="window.location.href='cashflow/employee_cashflow.php'"><i class="fas fa-money-bill-wave"></i> Cash-Flow</button>
+			<!-- <button onclick="window.location.href='sales/sales.php'"><i class="fas fa-shopping-cart"></i> Sales</button> -->
+			<button onclick="window.location.href='sales/employee_closeofday.php'"><i class="fas fa-box-open"></i> Close of Day Summary</button>
+			<!-- <button onclick="window.location.href='delivery/delivery.php'"><i class="fas fa-truck"></i> Deliveries</button> -->
 		</div>
-		<div id="content" class="mr-2">
-			<div id="price_column" class="m-2 table-responsive-sm">
-				<form method="POST" action="">
-				<table class="table-striped w-100 font-weight-bold" style="cursor: pointer;" id="table2">
-					<thead>
-						<tr class='text-center'>
-							<th>Barcode</th>
-							<th>Description</th>
-							<th>Price</th>
-							<th>Unit</th>
-							<th>Qty</th>
-							<th>Sub.Total</th>
-							<th>Action</th>
-						</tr>
-					</thead>
-					<tbody id="tableData">
-					</tbody>
-				</table>
-				</form>
-			</div>
-			<div id="table_buttons">
-				<button id="buttons" type="button" name='enter' class="Enter btn btn-secondary border ml-2"><i class="fas fa-handshake"></i> Finish</button>
-				<div class="">
-					<small>
-					<ul class="text-white justify-content-center">
-						<li class="mb-0">Discount (%): <input style="width: 100px" type="number" name="discount" value="" min="1" placeholder="Enter Discount" id="discount"></li>
-						<li class="d-flex mb-0">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<p class="dis m-0"></p></li>
-						<li class="d-flex">Total:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<p id="totalValue1">Ksh 0.00</p></li>
-					</ul>
-				</small>
-				</div>
-			</div>
+		
+		<div class="user-info">
+			<h6 class="text-sm"><i class="fas fa-user-tie"></i> Username: <span><?php echo htmlspecialchars($row['position']); ?></span></h6>
+			<h6 class="text-sm"><i class="fa-solid fa-calendar-days"></i> Date: <span id="Date"></span></h6>
 		</div>
-		<div id="sidebar">
-			<div class="mt-1">
-			<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span></div>
-   			<input class="form-control" type="text" placeholder="Product Search" aria-label="Search" id="search" name="search" onkeyup="loadproducts();"/>
-   			</div></div>
-			<div class="mt-0" id="product_area" class="table-responsive-sm mt-2" >
-				<table class="w-100 table-striped font-weight-bold" style="cursor: pointer;" id="table1">
-					<thead>
-						<tr claclass='text-center'><b>
-							<td>Barcode</td>
-							<td>Product Name</td>
-							<td>Price</td>
-							<td>Unit</td>
-							<td>Stocks</td>
-						</tr></b>
-						<tbody id="products">
-							
-						</tbody>
-					</thead>
-				</table>
-			</div>
-			<div class="w-100 mt-2" id="enter_area">
-				<button id="buttons" type="button" class="cancel btn btn-secondary border"><i class="fas fa-ban"></i> Cancel</button>
-			</div>
-		</div>
-		<div id="footer" class="w-100" align="center" style="">
-			<button id="buttons" onclick="window.location.href='employee/profile.php'" class="btn btn-secondary border mr-2 ml-2"><i class="fas fa-user-circle"></i> My Profile</button>
-			<button id="buttons" onclick="window.location.href='employee/inventory.php'" class="btn btn-secondary border mr-2"><i class="fas fa-box-open"></i> Inventory</button>
-			<button id="buttons" onclick="window.location.href='employee/cashflow.php'" class="btn btn-secondary border mr-2"><i class="fas fa-money-bill-wave"></i> Cash-Flow</button>
-			<button id="buttons" name="logout" type="button" onclick="out();" class="logout btn btn-danger border mr-2"/> <i class="fas fa-sign-out-alt"></i> Logout</div>
+		<div class="hamburger" onclick="openSidebar()">
+			<i class="fas fa-bars"></i>
 		</div>
 	</div>
-	<?php include('add.php');?>
-	<?php include('templates/js_popper.php');?>
-	<script type="text/javascript" src="script2.js"></script>
-	<script src="bootstrap4/js/time.js"></script>
+
+	<!-- Sidebar for Mobile Navigation -->
+	<div id="sidebar" class="sidebar">
+		<span class="close-btn" onclick="closeSidebar()">&times;</span>
+		<div class="sidebar-content">
+			<a href="user/employee_profile.php"><i class="fas fa-users"></i>View Profile</a>
+			<a href="products/products_employee.php"><i class="fas fa-user-friends"></i> Products</a>
+			<a href="cashflow/employee_cashflow.php"><i class="fas fa-globe"></i> Cash-Flow</a>
+			<a href="sales/employee_closeofday.php"><i class="fas fa-money-bill-wave"></i> Close of Day Summary</a>
+		</div>
+	</div>
+
+	<script>
+		function openSidebar() {
+			document.getElementById('sidebar').style.width = '50%';
+		}
+
+		function closeSidebar() {
+			document.getElementById('sidebar').style.width = '0';
+		}
+
+		function updateDateTime() {
+			var datetimeElement = document.getElementById('Date');
+			var currentTime = new Date();
+			var formattedDateTime = currentTime.getFullYear() + '-' + 
+				('0' + (currentTime.getMonth() + 1)).slice(-2) + '-' + 
+				('0' + currentTime.getDate()).slice(-2) + ' ' + 
+				('0' + currentTime.getHours()).slice(-2) + ':' + 
+				('0' + currentTime.getMinutes()).slice(-2) + ':' + 
+				('0' + currentTime.getSeconds()).slice(-2);
+			datetimeElement.innerHTML = formattedDateTime;
+		}
+		setInterval(updateDateTime, 1000);
+		updateDateTime();
+	</script>
+
+	<!-- Main Section -->
+	<div class="flex flex-wrap justify-around p-4 bg-gray-50">
+		<!-- Grand Total Card -->
+		<div class="bg-black text-green-500 p-6 rounded-lg border-2 border-white text-center w-64">
+			<h3 class="text-xl font-bold">Grand Total</h3>
+			<p id="totalValue" class="text-2xl mt-4">Ksh 0.00</p>
+		</div>
+		
+		<!-- Search Bar -->
+		<div class="w-full mt-6">
+			<div class="flex justify-center">
+				<input type="text" class="p-2 border rounded-lg w-1/2" placeholder="Product Search" id="search" name="search" onkeyup="loadproducts();">
+			</div>
+		</div>
+		
+		<!-- Product Table -->
+		<div class="mt-6 w-full overflow-x-auto">
+
+		<table class="min-w-full bg-white shadow-lg rounded-lg">
+				<thead  class="bg-gray-200">
+					<tr>
+						<th id="smalltxt" class="p-3 text-left">Barcode</th>
+						<th id="smalltxt" class="p-3 text-left">Item</th>
+						<th id="smalltxt" class="p-3 text-left">Price</th>
+						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
+						
+						<th id="smalltxt" class="p-3 text-left">Unit</th>
+						<th id="smalltxt" class="p-3 text-left">Stock</th>
+						
+					</tr>
+				</thead>
+        <tbody id="tableData">
+            <!-- Product rows will be populated here by AJAX -->
+        </tbody>
+    </table>
+
+		</div>
+	</div>
+
+	<!-- Cart Section -->
+	<div class="p-4">
+		<form method="POST" action="">
+		<div class="mt-6 w-full overflow-x-auto">
+			<table class="min-w-full bg-white shadow-lg rounded-lg">
+				<thead class="bg-gray-200">
+					<tr>
+						<th id="smalltxt" class="p-3 text-left">Barcode</th>
+						<th id="smalltxt" class="p-3 text-left">Description</th>
+						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
+						<th id="smalltxt" class="p-3 text-left">Price</th>
+						<th id="smalltxt" class="p-3 text-left">Unit</th>
+						<th id="smalltxt" class="p-3 text-left">Qty</th>
+						<th id="smalltxt" class="p-3 text-left">Sub.Total</th>
+						<th id="smalltxt" class="p-3 text-left">Action</th>
+					</tr>
+				</thead>
+				<tbody id="products">
+					<!-- Dynamic rows here -->
+				</tbody>
+			</table>
+		</div>
+		</form>
+	</div>
+	<div style="text-align:center" >
+		<small>
+			<ul class="text-black ">
+				<li class="d-flex mb-0">Total (Ksh): <p id="totalValue1" class="mb-0 ml-5 pl-3">0.00</p></li>
+				<!-- <li class="mb-0 mt-0">Discount (Ksh): <input style="width: 100px" class="text-right form-control-sm" type="number" name="discount" value="0" min="0" placeholder="Enter Discount" id="discount" ></li> -->
+			</ul>
+		</small>
+		<div class="finish">
+			<button id="buttons" type="button" name='enter' class="Enter btn btn-secondary border ml-2 w-30"><i class="fas fa-handshake"></i> Pay Now</button>
+		</div>
+	</div>
+
+	<!-- Footer Buttons -->
+
+	<!-- Logout -->
+	<div class="flex justify-center mt-8">
+		<button class="bg-red-600 text-white py-2 px-6 rounded-lg"><i class="fas fa-sign-out-alt"></i><a href="logout.php">Logout</a></button>
+	</div>
+
+	<?php include('add.php'); ?>
+	<?php include('templates/js_popper.php'); ?>
+	<script type="text/javascript" src="script4.js"></script>
 </body>
-</html> 
+</html>
+<?php } } ?>
+

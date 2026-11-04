@@ -38,31 +38,44 @@
 						<tbody>
 							<tr>
 								<td  valign="baseline">Name:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="product_name" class="form-control-sm form-control" value="<?php echo $row1['product_name'];?>"required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="product_name" class="form-control-sm form-control" value="<?php echo $row1['product_name'];?>"></div></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Sell Price:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="price" step="0.01" value="<?php echo $row1['sell_price'];?>" class="form-control form-control-sm" required></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="price" step="0.01" value="<?php echo $row1['sell_price'];?>" class="form-control form-control-sm" ></td>
+							</tr>
+							<tr>
+								<td  valign="baseline">Buying Price:</td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="buying_price" step="0.01" value="<?php echo $row1['buying_price'];?>" class="form-control form-control-sm" ></td>
+							</tr>
+							</tr>
+							<tr>
+								<td  valign="baseline">Minimum Price:</td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="minimum_price" step="0.01" value="<?php echo $row1['minimum_price'];?>" class="form-control form-control-sm" ></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Quantity:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="qty" value="<?php echo $row1['quantity'];?>" class="form-control-sm form-control" required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="qty" value="<?php echo $row1['quantity'];?>" class="form-control-sm form-control" ></div></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Unit:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="unit" value="<?php echo $row1['unit'];?>" class="form-control-sm form-control" required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="unit" value="<?php echo $row1['unit'];?>" class="form-control-sm form-control" ></div></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Minimum stocks:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="min_stocks" value="<?php echo $row1['min_stocks'];?>" class="form-control-sm form-control" required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="number" name="min_stocks" value="<?php echo $row1['min_stocks'];?>" class="form-control-sm form-control" ></div></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Remarks:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="remarks" value="<?php echo $row1['remarks'];?>" class="form-control-sm form-control" required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="remarks" value="<?php echo $row1['remarks'];?>" class="form-control-sm form-control" ></div></td>
 							</tr>
 							<tr>
 								<td  valign="baseline">Location:</td>
-								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="location" value="<?php echo $row1['location'];?>" class="form-control-sm form-control" required></div></td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="text" name="location" value="<?php echo $row1['location'];?>" class="form-control-sm form-control" ></div></td>
+							</tr>
+							<tr>
+								<td  valign="baseline">Expiry Date:</td>
+								<td class="pl-5 pb-2"><div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-pen-alt"></i></span></div><input type="date" name="expiry_date" value="<?php echo $row1['Expiry_Date'];?>" class="form-control-sm form-control" ></div></td>
 							</tr>
 						<?php }?>
 							<tr>

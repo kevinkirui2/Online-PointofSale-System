@@ -1,0 +1,62 @@
+[2025-01-14 18:05:39] Received POST data: {"totalvalue":"300","product":["12"],"price":[" 300.00"],"quantity":["5"],"payment_method":"Cash"}
+[2025-01-14 18:05:39] Processing sale for user: admin with total value: Array
+[2025-01-14 18:05:39] Sale recorded successfully for user: admin
+[2025-01-14 18:05:39] Updated quantity for product ID: 12
+[2025-01-14 18:06:35] Received POST data: {"totalvalue":"50","product":["12"],"price":[" 60.00"],"quantity":["1"],"payment_method":"Cash"}
+[2025-01-14 18:06:35] Processing sale for user: admin with total value: 50
+[2025-01-14 18:06:35] Sale recorded successfully for user: admin
+[2025-01-14 18:06:35] Updated quantity for product ID: 12
+[2025-01-14 18:14:06] Received POST data: {"totalvalue":"120","product":["13"],"price":[" 150.00"],"quantity":["1"],"payment_method":"Cash"}
+[2025-01-14 18:14:06] Processing sale for user: admin with total value: 120
+[2025-01-14 18:14:06] Sale recorded successfully for user: admin
+[2025-01-14 18:14:06] Updated quantity for product ID: 13
+[2025-01-14 19:13:49] Received POST data: {"totalvalue":"420","product":["13","13"],"price":[" 300.00"," 150.00"],"quantity":["2","1"],"payment_method":"Cash"}
+[2025-01-14 19:13:49] Processing sale for user: admin with total value: 420
+[2025-01-14 19:13:49] Sale recorded successfully for user: admin
+[2025-01-14 19:13:49] Updated quantity for product ID: 13
+[2025-01-14 19:13:49] Updated quantity for product ID: 13
+[2025-04-04 06:23:49] Received POST data: {"totalvalue":"200","product":["1"],"price":[" 200.00"],"quantity":["2"],"payment_method":"Cash"}
+[2025-04-04 06:23:49] Processing sale for user: kiruikev with total value: 200
+[2025-04-04 06:23:49] Sale recorded successfully for user: kiruikev
+[2025-04-04 06:23:49] Updated quantity for product ID: 1
+[2025-04-04 07:50:33] Received POST data: {"totalvalue":"600","product":["1"],"price":[" 600.00"],"quantity":["6"],"payment_method":"Cash"}
+[2025-04-04 07:50:33] Processing sale for user: kiruikev with total value: 600
+[2025-04-04 07:50:33] Sale recorded successfully for user: kiruikev
+[2025-04-04 07:50:34] Updated quantity for product ID: 1
+[2025-04-04 07:53:01] Received POST data: {"totalvalue":"0","product":["40"],"price":[" 0.00"],"quantity":["5"],"payment_method":"Cash"}
+[2025-04-04 07:53:01] Processing sale for user: kiruikev with total value: 0
+[2025-04-04 07:53:01] Sale recorded successfully for user: kiruikev
+[2025-04-04 07:53:01] Updated quantity for product ID: 40
+[2026-02-22 06:37:27] Received POST data: {"totalvalue":"700","product":["1"],"price":[" 700.00"],"quantity":["7"],"payment_method":"Cash"}
+[2026-02-22 06:37:27] Processing sale for user: smoothdime with total value: 700
+[2026-02-22 06:37:27] Sale recorded successfully for user: smoothdime
+[2026-02-22 06:37:27] Updated quantity for product ID: 1
+[2026-02-22 06:46:11] Received POST data: {"totalvalue":"1200","product":["10011"],"price":[" 1200.00"],"quantity":["2"],"mpesacode":"UBLE57E1JP","payment_method":"MPESA"}
+[2026-02-22 06:46:11] Processing sale for user: smoothdime with total value: 1200
+[2026-02-22 06:46:11] Sale recorded successfully for user: smoothdime
+[2026-02-22 06:46:11] Updated quantity for product ID: 10011
+[2026-02-22 16:19:34] Received POST data: {"totalvalue":"100","product":["1"],"price":[" 100.00"],"quantity":["1"],"discount":"0","payment_method":"Cash"}
+[2026-02-22 16:19:34] Processing sale for user: admin with total value: 100
+[2026-02-22 16:19:34] Sale recorded successfully for user: admin
+[2026-02-22 16:19:34] Updated quantity for product ID: 1
+[2026-02-24 10:44:01] Received POST data: {"totalvalue":"450","product":["13"],"price":[" 450.00"],"quantity":["3"],"discount":"0","payment_method":"Cash"}
+[2026-02-24 10:44:01] Processing sale for user: kiruikev123 with total value: 450
+[2026-02-24 10:44:01] Sale recorded successfully for user: kiruikev123
+[2026-02-24 10:44:01] Updated quantity for product ID: 13
+[2026-03-19 09:58:48] Received POST data: {"totalvalue":"150","product":["13"],"price":[" 150.00"],"quantity":["1"],"discount":"0","payment_method":"Cash"}
+[2026-03-19 09:58:48] Processing sale for user: kevin123 with total value: 150
+[2026-03-19 09:58:48] Sale recorded successfully for user: kevin123
+[2026-03-19 09:58:48] Updated quantity for product ID: 13
+[2026-03-19 12:10:26] Received POST data: {"totalvalue":"100","product":["1"],"price":[" 100.00"],"quantity":["1"],"discount":"0","payment_method":"Cash"}
+[2026-03-19 12:10:26] Processing sale for user: kevin123 with total value: 100
+[2026-03-19 12:10:26] Sale recorded successfully for user: kevin123
+[2026-03-19 12:10:26] Updated quantity for product ID: 1
+[2026-03-19 14:43:30] Received POST data: {"totalvalue":"15","product":["12"],"price":[" 15.00"],"quantity":["1"],"discount":"0","payment_method":"Cash"}
+[2026-03-19 14:43:30] Processing sale for user: kevin123 with total value: 15
+[2026-03-19 14:43:30] Sale recorded successfully for user: kevin123
+[2026-03-19 14:43:30] Updated quantity for product ID: 12
+[2026-10-21 13:05:57] Received POST data: {"totalvalue":"215","product":["1","12"],"price":[" 200.00"," 15.00"],"quantity":["2","1"],"payment_method":"Cash"}
+[2026-10-21 13:05:57] Processing sale for user: test with total value: 215
+[2026-10-21 13:05:57] Sale recorded successfully for user: test
+[2026-10-21 13:05:57] Updated quantity for product ID: 1
+[2026-10-21 13:05:57] Updated quantity for product ID: 12

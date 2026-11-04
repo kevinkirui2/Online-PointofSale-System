@@ -1,6 +1,6 @@
 <?php 
 	include('../user/add.php');
-	include '../set.php';
+	
 ?>
 <!DOCTYPE html>
 <html>

@@ -140,9 +140,9 @@
 				<h3 class="dashboard"><i class="fas fa-tachometer-alt"></i> Sales Dashboard</h3></button>
 				<span  id="sidebar_button" onclick="window.location.href='../sales/sales.php'"><i class="fas fa-cart-arrow-down"></i> Sales</span>
 				<span  id="sidebar_button" onclick="window.location.href='../sales/closeofday.php'"><i class="fas fa-cart-arrow-down"></i> Close of Day Sales</span>
+
 				
 				
-				<span   id="sidebar_button" type="button" data-toggle="popover" title="Sales Record" data-content="Here you can view sales record of the store." data-placement="bottom"><i class="fas fa-question"></i> Help</span>
 				<span id="sidebar_button" onclick="window.location.href='../main.php'"><i class="fas fa-arrow-alt-circle-left"></i> Back</span>	
 			</div>
 

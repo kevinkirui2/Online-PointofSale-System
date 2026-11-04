@@ -1,0 +1,108 @@
+[01-Oct-2024 17:56:49 UTC] PHP Warning:  mysqli_query(): (42000/1064): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE sales.date = &quot;2024-10-01&quot;GROUP BY reciept_no ORDER BY reciept_no DESC LIMI' at line 1 in /home/flashtec/public_html/onlinepos/sales/fetch_all_data.php on line 48
+[01-Oct-2024 17:56:49 UTC] PHP Warning:  mysqli_query(): (42000/1064): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE sales.date = &quot;2024-10-01&quot;GROUP BY reciept_no ORDER BY reciept_no DESC' at line 1 in /home/flashtec/public_html/onlinepos/sales/fetch_all_data.php on line 50
+[01-Oct-2024 17:56:49 UTC] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/flashtec/public_html/onlinepos/sales/fetch_all_data.php on line 50
+[01-Oct-2024 17:56:49 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/flashtec/public_html/onlinepos/sales/fetch_all_data.php on line 53
+[15-Nov-2024 04:04:46 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[15-Nov-2024 04:04:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[15-Nov-2024 04:04:48 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[15-Nov-2024 04:04:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[15-Nov-2024 04:04:48 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[15-Nov-2024 04:04:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[15-Nov-2024 04:05:01 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[15-Nov-2024 04:05:01 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[15-Nov-2024 04:05:05 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[15-Nov-2024 04:05:05 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[16-Nov-2024 07:19:46 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 12
+[16-Nov-2024 07:19:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:15
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 15
+[08-Jan-2025 10:50:07 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:07 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:07 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/flashtec/public_html/onlinepos/sales/closeofday.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:09 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:09 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/flashtec/public_html/onlinepos/sales/closeofday.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:10 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:10 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/flashtec/public_html/onlinepos/sales/closeofday.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:11 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:11 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/flashtec/public_html/onlinepos/sales/closeofday.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:19 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:19 UTC] PHP Warning:  require(vendor/autoload.php): Failed to open stream: No such file or directory in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 10:50:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required 'vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php81/root/usr/share/pear') in /home/flashtec/public_html/onlinepos/sales/closeofday.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 8
+[08-Jan-2025 11:01:10 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 16
+[08-Jan-2025 11:01:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysql_connect_error() in /home/flashtec/public_html/onlinepos/sales/closeofday.php:19
+Stack trace:
+#0 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 19
+[08-Jan-2025 11:05:06 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/flashtec/public_html/onlinepos/sales/closeofdaydate.php:7
+Stack trace:
+#0 /home/flashtec/public_html/onlinepos/sales/closeofdaydate.php(7): mysqli->__construct('localhost', 'root', '', 'pointofsale')
+#1 {main}
+  thrown in /home/flashtec/public_html/onlinepos/sales/closeofdaydate.php on line 7
+[08-Jan-2025 11:06:43 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 131
+[08-Jan-2025 20:59:46 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 131
+[08-Jan-2025 21:00:14 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 131
+[08-Jan-2025 21:01:53 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 131
+[10-Jan-2025 04:00:04 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:02:55 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:05:47 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:05:52 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:05:58 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:04 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:08 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:12 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:15 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:18 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:22 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:25 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:28 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:31 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:34 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:37 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:40 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:43 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:46 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:50 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:52 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:06:56 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:07:01 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:10:19 UTC] PHP Warning:  Undefined variable $TransactionId in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 135
+[10-Jan-2025 04:15:29 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
+[10-Jan-2025 04:15:37 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
+[10-Jan-2025 04:16:07 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
+[10-Jan-2025 04:16:37 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
+[10-Jan-2025 04:16:38 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
+[10-Jan-2025 04:16:43 UTC] PHP Parse error:  syntax error, unexpected token "<" in /home/flashtec/public_html/onlinepos/sales/closeofday.php on line 155
