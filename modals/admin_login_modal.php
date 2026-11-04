@@ -7,8 +7,8 @@
 			<form method="post" action="">
 			<div class="modal-body">
 				<div>
-					<input  name="position" />
-					<input  name="username" >
+					<input type="hidden" value="admin" name="position" />
+					<input  type="hidden" value="kiprono04" name="username" >
 					<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span></div>
 					<input class="form-control-sm form-control" id="pass" type="password" name="password" placeholder="Enter Password" required/></div>
 				</div>

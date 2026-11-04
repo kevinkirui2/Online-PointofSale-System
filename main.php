@@ -12,7 +12,7 @@ $stmt = mysqli_prepare($db, "SELECT position FROM users WHERE username = ? LIMIT
 mysqli_stmt_bind_param($stmt, 's', $_SESSION['username']);
 mysqli_stmt_execute($stmt);
 $row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
-
+ 
 // Session points to a user that no longer exists: clear it so it can't loop
 // if (!$row) {
 // 	session_destroy();
