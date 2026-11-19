@@ -1,6 +1,9 @@
 <?php
 include('server/connection.php');
 
+/** @var mysqli $db */
+
+
 // Not logged in: go to the login page, and stop
 if (!isset($_SESSION['username'])) {
 	header('location: main.php');
@@ -12,11 +15,11 @@ $stmt = mysqli_prepare($db, "SELECT position FROM users WHERE username = ? LIMIT
 mysqli_stmt_bind_param($stmt, 's', $_SESSION['username']);
 mysqli_stmt_execute($stmt);
 $row = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
- 
+
 // Session points to a user that no longer exists: clear it so it can't loop
 // if (!$row) {
 // 	session_destroy();
-	
+
 // 	exit;
 // }
 
@@ -29,6 +32,7 @@ $failure  = isset($_GET['failure']);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Dashboard</title>
@@ -37,7 +41,8 @@ $failure  = isset($_GET['failure']);
 	<?php include('templates/head.php'); ?>
 	<style>
 		/* Reset some default styles */
-		body, html {
+		body,
+		html {
 			margin: 0;
 			padding: 0;
 			box-sizing: border-box;
@@ -49,7 +54,8 @@ $failure  = isset($_GET['failure']);
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-			background-color: #2d3748; /* Dark Gray */
+			background-color: #2d3748;
+			/* Dark Gray */
 			color: white;
 			padding: 15px 20px;
 			position: relative;
@@ -77,7 +83,8 @@ $failure  = isset($_GET['failure']);
 		}
 
 		.nav-links button:hover {
-			color: #f7fafc; /* Light Gray */
+			color: #f7fafc;
+			/* Light Gray */
 		}
 
 		/* Hamburger Menu */
@@ -149,7 +156,7 @@ $failure  = isset($_GET['failure']);
 				font-size: 12px;
 			}
 
-			
+
 
 			.hamburger {
 				display: block;
@@ -198,7 +205,7 @@ $failure  = isset($_GET['failure']);
 <body class="bg-gray-100 text-gray-800">
 	<div id="navbar">
 		<img src="images/log3.png" alt="Logo">
-		<p style="opacity: 0.8">Sales  System</p>
+		<p style="opacity: 0.8">Sales System</p>
 		<div class="nav-links">
 			<button onclick="window.location.href='user/user.php'"><i class="fas fa-users"></i> User</button>
 			<button onclick="window.location.href='products/products.php'"><i class="fas fa-box-open"></i> Product</button>
@@ -209,7 +216,7 @@ $failure  = isset($_GET['failure']);
 			<button onclick="window.location.href='sales/closeofday.php'"><i class="fas fa-box-open"></i> Close of Day Summary</button>
 			<button onclick="window.location.href='delivery/delivery.php'"><i class="fas fa-truck"></i> Deliveries</button>
 		</div>
-		
+
 		<div class="user-info">
 			<h6 class="text-sm"><i class="fas fa-user-tie"></i> Username: <span><?php echo htmlspecialchars($row['position']); ?></span></h6>
 			<h6 class="text-sm"><i class="fa-solid fa-calendar-days"></i> Date: <span id="Date"></span></h6>
@@ -247,11 +254,11 @@ $failure  = isset($_GET['failure']);
 		function updateDateTime() {
 			var datetimeElement = document.getElementById('Date');
 			var currentTime = new Date();
-			var formattedDateTime = currentTime.getFullYear() + '-' + 
-				('0' + (currentTime.getMonth() + 1)).slice(-2) + '-' + 
-				('0' + currentTime.getDate()).slice(-2) + ' ' + 
-				('0' + currentTime.getHours()).slice(-2) + ':' + 
-				('0' + currentTime.getMinutes()).slice(-2) + ':' + 
+			var formattedDateTime = currentTime.getFullYear() + '-' +
+				('0' + (currentTime.getMonth() + 1)).slice(-2) + '-' +
+				('0' + currentTime.getDate()).slice(-2) + ' ' +
+				('0' + currentTime.getHours()).slice(-2) + ':' +
+				('0' + currentTime.getMinutes()).slice(-2) + ':' +
 				('0' + currentTime.getSeconds()).slice(-2);
 			datetimeElement.innerHTML = formattedDateTime;
 		}
@@ -266,34 +273,33 @@ $failure  = isset($_GET['failure']);
 			<h3 class="text-xl font-bold">Grand Total</h3>
 			<p id="totalValue" class="text-2xl mt-4">Ksh 0.00</p>
 		</div>
-		
+
 		<!-- Search Bar -->
 		<div class="w-full mt-6">
 			<div class="flex justify-center">
 				<input type="text" class="p-2 border rounded-lg w-1/2" placeholder="Product Search" id="search" name="search" onkeyup="loadproducts();">
 			</div>
 		</div>
-		
+
 		<!-- Product Table -->
 		<div class="mt-6 w-full overflow-x-auto">
 
-		<table class="min-w-full bg-white shadow-lg rounded-lg">
-				<thead  class="bg-gray-200">
+			<table class="min-w-full bg-white shadow-lg rounded-lg">
+				<thead class="bg-gray-200">
 					<tr>
 						<th id="smalltxt" class="p-3 text-left">Barcode</th>
 						<th id="smalltxt" class="p-3 text-left">Item</th>
 						<th id="smalltxt" class="p-3 text-left">Price</th>
 						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
-						
 						<th id="smalltxt" class="p-3 text-left">Unit</th>
 						<th id="smalltxt" class="p-3 text-left">Stock</th>
-						
+
 					</tr>
 				</thead>
-        <tbody id="tableData">
-            <!-- Product rows will be populated here by AJAX -->
-        </tbody>
-    </table>
+				<tbody id="tableData">
+					<!-- Product rows will be populated here by AJAX -->
+				</tbody>
+			</table>
 
 		</div>
 	</div>
@@ -301,32 +307,33 @@ $failure  = isset($_GET['failure']);
 	<!-- Cart Section -->
 	<div class="p-4">
 		<form method="POST" action="">
-		<div class="mt-6 w-full overflow-x-auto">
-			<table class="min-w-full bg-white shadow-lg rounded-lg">
-				<thead class="bg-gray-200">
-					<tr>
-						<th id="smalltxt" class="p-3 text-left">Barcode</th>
-						<th id="smalltxt" class="p-3 text-left">Item</th>
-						<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
-						<th id="smalltxt" class="p-3 text-left">Price</th>
-						<th id="smalltxt" class="p-3 text-left">Unit</th>
-						<th id="smalltxt" class="p-3 text-left">Qty</th>
-						<th id="smalltxt" class="p-3 text-left">Sub.Total</th>
-						<th id="smalltxt" class="p-3 text-left">Action</th>
-					</tr>
-				</thead>
-				<tbody id="products">
-					<!-- Dynamic rows here -->
-				</tbody>
-			</table>
-		</div>
+			<div class="mt-6 w-full overflow-x-auto">
+				<table class="min-w-full bg-white shadow-lg rounded-lg">
+					<thead class="bg-gray-200">
+						<tr>
+							<th id="smalltxt" class="p-3 text-left">Barcode</th>
+							<th id="smalltxt" class="p-3 text-left">Item</th>
+							<th id="smalltxt" class="p-3 text-left">Minimum Price</th>
+							<th id="smalltxt" class="p-3 text-left">Price</th>
+							<th id="smalltxt" class="p-3 text-left">Unit</th>
+							<th id="smalltxt" class="p-3 text-left">Qty</th>
+							<th id="smalltxt" class="p-3 text-left">Sub.Total</th>
+							<th id="smalltxt" class="p-3 text-left">Action</th>
+						</tr>
+					</thead>
+					<tbody id="products">
+						<!-- Dynamic rows here -->
+					</tbody>
+				</table>
+			</div>
 		</form>
 	</div>
-	<div style="text-align:center" >
+	<div style="text-align:center">
 		<small>
 			<ul class="text-black ">
-				<li class="d-flex mb-0">Total (Ksh): <p id="totalValue1" class="mb-0 ml-5 pl-3">0.00</p></li>
-				<li class="mb-0 mt-0">Discount (Ksh): <input style="width: 100px" class="text-right form-control-sm" type="number" name="discount" value="0" min="0" placeholder="Enter Discount" id="discount" ></li>
+				<li class="d-flex mb-0">Total (Ksh): <p id="totalValue1" class="mb-0 ml-5 pl-3">0.00</p>
+				</li>
+				<li class="mb-0 mt-0">Discount (Ksh): <input style="width: 100px" class="text-right form-control-sm" type="number" name="discount" value="0" min="0" placeholder="Enter Discount" id="discount"></li>
 			</ul>
 		</small>
 		<div class="finish">
@@ -345,5 +352,6 @@ $failure  = isset($_GET['failure']);
 	<?php include('templates/js_popper.php'); ?>
 	<script type="text/javascript" src="script3.js"></script>
 </body>
+
 </html>
 <?php  ?>

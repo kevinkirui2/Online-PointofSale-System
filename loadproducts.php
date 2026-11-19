@@ -1,5 +1,8 @@
-    <?php
+<?php
 include('server/connection.php');
+
+/** @var mysqli $db */
+
 
 // Check if the request has been made
 if (isset($_POST['products'])) {
@@ -30,7 +33,6 @@ if (isset($_POST['products'])) {
             echo "<td>" . $row['sell_price'] . "</td><td>" . $row['minimum_price'] . "</td><td>" . $row['unit'] . "</td><td>" . $row['quantity'] . "</td></tr>";
         }
     } else {
-        echo "<tr><td colspan='5'>No Products found!</td></tr>"; // Message when no products found
+        echo "<tr><td colspan='6'>No Products found!</td></tr>"; // Message when no products found
     }
 }
-?>
