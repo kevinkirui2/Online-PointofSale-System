@@ -1,5 +1,8 @@
 <?php
 include('server/connection.php');
+if (empty($_SESSION['pos_csrf'])) {
+    $_SESSION['pos_csrf'] = bin2hex(random_bytes(32));
+}
 
 /** @var mysqli $db */
 
@@ -35,6 +38,8 @@ $failure  = isset($_GET['failure']);
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="pos-csrf"
+      content="<?php echo htmlspecialchars($_SESSION['pos_csrf'], ENT_QUOTES, 'UTF-8'); ?>">
 	<title>Dashboard</title>
 	<script src="https://cdn.tailwindcss.com"></script>
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
