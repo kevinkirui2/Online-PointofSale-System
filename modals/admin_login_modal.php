@@ -7,11 +7,22 @@
 			<form method="post" action="">
 			<div class="modal-body">
 				<div>
-					<input type="hidden" value="admin" name="position" />
-					<input  type="hidden" value="kiprono04" name="username" >
-					<div class="input-group"><div class="input-group-prepend"><span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span></div>
-					<input class="form-control-sm form-control" id="pass" type="password" name="password" placeholder="Enter Password" required/></div>
-				</div>
+	<input type="hidden" value="admin" name="position" />
+
+	<div class="input-group mb-3">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="username-addon"><i class="fas fa-user"></i></span>
+		</div>
+		<input class="form-control-sm form-control" id="username" type="text" name="username" placeholder="Enter Username" required />
+	</div>
+
+	<div class="input-group">
+		<div class="input-group-prepend">
+			<span class="input-group-text" id="basic-addon1"><i class="fas fa-key"></i></span>
+		</div>
+		<input class="form-control-sm form-control" id="pass" type="password" name="password" placeholder="Enter Password" required />
+	</div>
+</div>
 				<div class="modal-footer ">
 					<button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-ban"></i> Close</button>
 					<button type="submit" name="login" class="btn btn-success"><i class="fas fa-sign-in-alt"></i> login</button>
