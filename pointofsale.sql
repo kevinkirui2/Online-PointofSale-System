@@ -1062,7 +1062,7 @@ COMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
 
-
+-- Create mpesa payments table
 CREATE TABLE mpesa_payments (
     id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     checkout_request_id VARCHAR(120) NOT NULL UNIQUE,
@@ -1073,6 +1073,7 @@ CREATE TABLE mpesa_payments (
     status ENUM(
         'pending',
         'reported_success',
+        'query_confirmed',
         'failed',
         'cancelled',
         'timed_out',
@@ -1084,51 +1085,51 @@ CREATE TABLE mpesa_payments (
     mpesa_receipt VARCHAR(50) DEFAULT NULL UNIQUE,
     callback_amount DECIMAL(10,2) DEFAULT NULL,
     callback_phone VARCHAR(15) DEFAULT NULL,
+
+    cart_snapshot JSON NULL,
+    cashier_username VARCHAR(30) NULL,
+    sale_receipt_no INT NULL,
+
+    verified_at TIMESTAMP NULL DEFAULT NULL,
+    finalized_at TIMESTAMP NULL DEFAULT NULL,
+    last_query_at DATETIME NULL DEFAULT NULL,
+
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        ON UPDATE CURRENT_TIMESTAMP
-);
+        ON UPDATE CURRENT_TIMESTAMP,
 
-ALTER TABLE mpesa_payments
-ADD COLUMN cart_snapshot JSON NULL,
-ADD COLUMN cashier_username VARCHAR(30) NULL,
-ADD COLUMN sale_receipt_no INT NULL,
-ADD COLUMN finalized_at TIMESTAMP NULL DEFAULT NULL,
-ADD UNIQUE KEY uq_mpesa_sale_receipt (sale_receipt_no);
+    UNIQUE KEY uq_mpesa_sale_receipt (sale_receipt_no)
+) ENGINE=InnoDB;
 
-CREATE TABLE sales_product_backup_20261123 LIKE sales_product
-INSERT INTO sales_product_backup_20261123 SELECT * FROM sales_product"
- echo "Backup created successfully"
+-- baackup sales_product table
+CREATE TABLE sales_product_backup_20261123
+LIKE sales_product;
 
- foreach (["sales_product","sales_product_backup_20261123"] as $table) { $r=$db->query("SELECT COUNT(*) AS total FROM `$table`"); echo "$table: ".$r->fetch_assoc()["total"]." records\n"; }'
-sales_product: 91 records
-sales_product_backup_20261123: 91 records
+INSERT INTO sales_product_backup_20261123
+SELECT * FROM sales_product;
 
+-- verify backup
+SELECT
+    'sales_product' AS table_name,
+    COUNT(*) AS total
+FROM sales_product
 
-docker compose exec app php -r 'require "/var/www/html/server/connection.php"; $db->query("ALTER TABLE sales_product MODIFY COLUMN reciept_no INT NOT NULL"); echo "AUTO_INCREMENT removed successfully\n";'
+UNION ALL
 
-docker compose exec app php -r 'require "/var/www/html/server/connection.php"; $r=$db->query("SHOW COLUMNS FROM sales_product LIKE '\''reciept_no'\''"); print_r($r->fetch_assoc());'
+SELECT
+    'sales_product_backup_20261123' AS table_name,
+    COUNT(*) AS total
+FROM sales_product_backup_20261123;
 
+-- remove auto imcrement from sales product table
+ALTER TABLE sales_product
+MODIFY COLUMN reciept_no INT NOT NULL;
+
+-- verify auto increment removal
+SHOW COLUMNS FROM sales_product LIKE 'reciept_no';
+
+-- update sales table
 ALTER TABLE sales
 ADD COLUMN mpesa_payment_id BIGINT UNSIGNED NULL,
 ADD UNIQUE KEY uq_sales_mpesa_payment (mpesa_payment_id);
 
-ALTER TABLE mpesa_payments
-ADD COLUMN verified_at TIMESTAMP NULL DEFAULT NULL;
-
-ALTER TABLE mpesa_payments
-MODIFY COLUMN status ENUM(
-    'pending',
-    'reported_success',
-    'query_confirmed',
-    'failed',
-    'cancelled',
-    'timed_out',
-    'needs_review'
-) NOT NULL DEFAULT 'pending';
-
-ALTER TABLE mpesa_payments
-ADD COLUMN last_query_at DATETIME NULL DEFAULT NULL;
-
-ALTER TABLE mpesa_payments
-ADD COLUMN last_query_at DATETIME NULL DEFAULT NULL;
