@@ -1,4 +1,6 @@
 <?php include('../server/connection.php');
+/** @var mysqli $db */
+
 	$msg 	= '';
 	$error  = array();
 	if(isset($_POST['add'])){

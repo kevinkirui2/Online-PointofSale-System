@@ -60,3 +60,11 @@
 [2026-10-21 13:05:57] Sale recorded successfully for user: test
 [2026-10-21 13:05:57] Updated quantity for product ID: 1
 [2026-10-21 13:05:57] Updated quantity for product ID: 12
+[2026-11-19 06:45:08] Received POST data: {"totalvalue":"200","product":["1"],"price":[" 200.00"],"quantity":["2"],"payment_method":"Cash"}
+[2026-11-19 06:45:08] Processing sale for user: katefrancis with total value: 200
+[2026-11-19 06:45:08] Sale recorded successfully for user: katefrancis
+[2026-11-19 06:45:08] Updated quantity for product ID: 1
+[2026-11-19 06:45:29] Received POST data: {"totalvalue":"10","product":["11"],"price":[" 10.00"],"quantity":["2"],"payment_method":"Cash"}
+[2026-11-19 06:45:29] Processing sale for user: katefrancis with total value: 10
+[2026-11-19 06:45:29] Sale recorded successfully for user: katefrancis
+[2026-11-19 06:45:29] Updated quantity for product ID: 11

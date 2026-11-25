@@ -1,4 +1,5 @@
 <?php
+/** @var mysqli $db */
 include 'server/connection.php';
 
 // Logging function to log messages into a file

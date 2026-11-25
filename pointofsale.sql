@@ -1060,3 +1060,76 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+-- Create mpesa payments table
+CREATE TABLE mpesa_payments (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    checkout_request_id VARCHAR(120) NOT NULL UNIQUE,
+    merchant_request_id VARCHAR(120) DEFAULT NULL,
+    phone VARCHAR(15) NOT NULL,
+    amount DECIMAL(10,2) NOT NULL,
+
+    status ENUM(
+        'pending',
+        'reported_success',
+        'query_confirmed',
+        'failed',
+        'cancelled',
+        'timed_out',
+        'needs_review'
+    ) NOT NULL DEFAULT 'pending',
+
+    result_code INT DEFAULT NULL,
+    result_desc VARCHAR(255) DEFAULT NULL,
+    mpesa_receipt VARCHAR(50) DEFAULT NULL UNIQUE,
+    callback_amount DECIMAL(10,2) DEFAULT NULL,
+    callback_phone VARCHAR(15) DEFAULT NULL,
+
+    cart_snapshot JSON NULL,
+    cashier_username VARCHAR(30) NULL,
+    sale_receipt_no INT NULL,
+
+    verified_at TIMESTAMP NULL DEFAULT NULL,
+    finalized_at TIMESTAMP NULL DEFAULT NULL,
+    last_query_at DATETIME NULL DEFAULT NULL,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    UNIQUE KEY uq_mpesa_sale_receipt (sale_receipt_no)
+) ENGINE=InnoDB;
+
+-- baackup sales_product table
+CREATE TABLE sales_product_backup_20261123
+LIKE sales_product;
+
+INSERT INTO sales_product_backup_20261123
+SELECT * FROM sales_product;
+
+-- verify backup
+SELECT
+    'sales_product' AS table_name,
+    COUNT(*) AS total
+FROM sales_product
+
+UNION ALL
+
+SELECT
+    'sales_product_backup_20261123' AS table_name,
+    COUNT(*) AS total
+FROM sales_product_backup_20261123;
+
+-- remove auto imcrement from sales product table
+ALTER TABLE sales_product
+MODIFY COLUMN reciept_no INT NOT NULL;
+
+-- verify auto increment removal
+SHOW COLUMNS FROM sales_product LIKE 'reciept_no';
+
+-- update sales table
+ALTER TABLE sales
+ADD COLUMN mpesa_payment_id BIGINT UNSIGNED NULL,
+ADD UNIQUE KEY uq_sales_mpesa_payment (mpesa_payment_id);
+

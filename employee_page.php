@@ -1,6 +1,6 @@
-
-
 <?php  
+/** @var mysqli $db */
+
 	include('server/connection.php');
 	if(!isset($_SESSION['username'])){
 		header('location: index.php');
